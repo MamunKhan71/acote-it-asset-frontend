@@ -1,6 +1,5 @@
 import axios, { AxiosError, AxiosHeaders, type AxiosAdapter, type InternalAxiosRequestConfig } from "axios";
 import { env } from "@/config/env";
-import { api } from "@/lib/api/client";
 import { handlers, MockFailure, type MockRequest } from "./mock-handlers";
 
 const LATENCY_MS = 300;
@@ -71,5 +70,4 @@ const mockAdapter: AxiosAdapter = async (config) => {
 
 export function enableMockApi() {
     axios.defaults.adapter = mockAdapter;
-    api.defaults.adapter = mockAdapter;
 }

@@ -1,7 +1,6 @@
 import "@/index.css";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { App } from "@/app/app";
 import { env } from "@/config/env";
 import { initTheme } from "@/lib/theme";
 
@@ -12,6 +11,7 @@ async function start() {
     }
 
     initTheme();
+    const { App } = await import("@/app/app");
 
     createRoot(document.getElementById("root")!).render(
         <StrictMode>
