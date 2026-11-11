@@ -9,15 +9,19 @@ import { authApi } from "../api/auth.api";
 import { useAuthStore } from "../store/auth.store";
 import type { LoginData, Preferences, TokenData } from "../types";
 
-type ChannelMessage = "login" | "logout";
+type ChannelMessage = { type: "login" | "logout"; tabId: string };
 
 const REFRESH_LEAD_SECONDS = 60;
 const MIN_REFRESH_DELAY_SECONDS = 5;
+const TAB_ID_KEY = "auth-tab-id";
+
+const tabId = sessionStorage.getItem(TAB_ID_KEY) ?? crypto.randomUUID();
+sessionStorage.setItem(TAB_ID_KEY, tabId);
 
 const channel = typeof BroadcastChannel === "undefined" ? null : new BroadcastChannel("auth");
 let refreshTimer: number | undefined;
 
-const broadcast = (message: ChannelMessage) => channel?.postMessage(message);
+const broadcast = (type: ChannelMessage["type"]) => channel?.postMessage({ type, tabId } satisfies ChannelMessage);
 
 function scheduleRefresh(expiresIn: number) {
     window.clearTimeout(refreshTimer);
@@ -80,6 +84,12 @@ configureApiAuth({
 });
 
 channel?.addEventListener("message", ({ data }: MessageEvent<ChannelMessage>) => {
-    if (data === "logout") endSession(null, false);
-    if (data === "login") void restoreSession().catch(() => undefined);
+    if (data.tabId === tabId) return;
+    if (data.type === "logout") endSession(null, false);
+    if (data.type === "login") void restoreSession().catch(() => undefined);
+});
+
+import.meta.hot?.dispose(() => {
+    channel?.close();
+    window.clearTimeout(refreshTimer);
 });
