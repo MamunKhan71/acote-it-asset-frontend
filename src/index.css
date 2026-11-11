@@ -1,79 +1,79 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Bengali:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Noto+Sans+Bengali:wght@400;500;600;700&display=swap");
 @import "tailwindcss";
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
 
 :root {
-    --radius: 6px;
+    --radius: 8px;
 
-    --background: 210 20% 97%;
-    --foreground: 210 15% 20%;
+    --background: 150 25% 98%;
+    --foreground: 162 30% 12%;
 
     --card: 0 0% 100%;
-    --card-foreground: 210 15% 20%;
+    --card-foreground: 162 30% 12%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 210 15% 20%;
+    --popover-foreground: 162 30% 12%;
 
-    --primary: 142 58% 28%;
+    --primary: 160 64% 30%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 16% 93%;
-    --secondary-foreground: 210 12% 28%;
+    --secondary: 150 22% 94%;
+    --secondary-foreground: 162 25% 20%;
 
-    --muted: 210 16% 95%;
-    --muted-foreground: 210 10% 40%;
+    --muted: 150 20% 95%;
+    --muted-foreground: 162 10% 42%;
 
-    --accent: 142 30% 92%;
-    --accent-foreground: 142 58% 24%;
+    --accent: 152 45% 92%;
+    --accent-foreground: 160 64% 22%;
 
-    --destructive: 0 70% 48%;
-    --border: 210 16% 86%;
-    --input: 210 16% 86%;
-    --ring: 142 58% 28%;
+    --destructive: 0 72% 50%;
+    --border: 150 18% 88%;
+    --input: 150 18% 86%;
+    --ring: 160 64% 30%;
 
-    --sidebar: 0 0% 100%;
-    --sidebar-foreground: 210 15% 20%;
-    --sidebar-accent: 142 30% 92%;
-    --sidebar-accent-foreground: 142 58% 24%;
-    --sidebar-border: 210 16% 86%;
-    --sidebar-ring: 142 58% 28%;
+    --sidebar: 150 30% 94.5%;
+    --sidebar-foreground: 162 28% 20%;
+    --sidebar-accent: 150 32% 89%;
+    --sidebar-accent-foreground: 160 64% 20%;
+    --sidebar-border: 150 22% 85%;
+    --sidebar-ring: 160 64% 35%;
 }
 
 .dark {
-    --background: 215 28% 9%;
-    --foreground: 210 20% 92%;
+    --background: 162 22% 7%;
+    --foreground: 150 15% 92%;
 
-    --card: 215 25% 12%;
-    --card-foreground: 210 20% 92%;
+    --card: 162 20% 10%;
+    --card-foreground: 150 15% 92%;
 
-    --popover: 215 25% 12%;
-    --popover-foreground: 210 20% 92%;
+    --popover: 162 20% 10%;
+    --popover-foreground: 150 15% 92%;
 
-    --primary: 142 50% 42%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 156 60% 45%;
+    --primary-foreground: 162 40% 6%;
 
-    --secondary: 215 20% 18%;
-    --secondary-foreground: 210 20% 88%;
+    --secondary: 162 15% 15%;
+    --secondary-foreground: 150 15% 88%;
 
-    --muted: 215 20% 16%;
-    --muted-foreground: 210 12% 65%;
+    --muted: 162 15% 13%;
+    --muted-foreground: 150 10% 62%;
 
-    --accent: 142 25% 18%;
-    --accent-foreground: 142 50% 75%;
+    --accent: 158 30% 16%;
+    --accent-foreground: 152 55% 75%;
 
-    --destructive: 0 65% 52%;
-    --border: 215 18% 22%;
-    --input: 215 18% 22%;
-    --ring: 142 50% 42%;
+    --destructive: 0 65% 55%;
+    --border: 162 15% 18%;
+    --input: 162 15% 20%;
+    --ring: 156 60% 45%;
 
-    --sidebar: 215 25% 11%;
-    --sidebar-foreground: 210 20% 92%;
-    --sidebar-accent: 142 25% 18%;
-    --sidebar-accent-foreground: 142 50% 75%;
-    --sidebar-border: 215 18% 22%;
-    --sidebar-ring: 142 50% 42%;
+    --sidebar: 162 25% 5%;
+    --sidebar-foreground: 150 15% 85%;
+    --sidebar-accent: 162 22% 12%;
+    --sidebar-accent-foreground: 152 55% 80%;
+    --sidebar-border: 162 18% 14%;
+    --sidebar-ring: 156 60% 45%;
 }
 
 @theme inline {
@@ -118,11 +118,11 @@
     }
 
     html[lang="en"] body {
-        font-family: "Inter", "Noto Sans Bengali", sans-serif;
+        font-family: "Space Grotesk", "Noto Sans Bengali", sans-serif;
     }
 
     html[lang="bn"] body {
-        font-family: "Noto Sans Bengali", "Inter", sans-serif;
+        font-family: "Noto Sans Bengali", "Space Grotesk", sans-serif;
     }
 
     body {

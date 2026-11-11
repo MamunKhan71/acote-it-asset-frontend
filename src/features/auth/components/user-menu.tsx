@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { SidebarMenu, SidebarMenuButton, SidebarMenuItem, useSidebar } from "@/components/ui/sidebar";
 import { paths } from "@/config/paths";
+import { cn } from "@/lib/utils";
 import { useCurrentUser } from "../hooks/use-current-user";
 import { signOut } from "../lib/session";
 import type { AuthUser } from "../types";
@@ -28,8 +29,11 @@ export function UserMenu() {
             <SidebarMenuItem>
                 <DropdownMenu>
                     <DropdownMenuTrigger asChild>
-                        <SidebarMenuButton size="lg" className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground">
-                            <UserIdentity user={user} subtitle={subtitle} />
+                        <SidebarMenuButton
+                            size="lg"
+                            className="h-14 rounded-xl bg-white/[0.05] text-white ring-1 ring-inset ring-white/10 hover:bg-white/10 hover:text-white data-[state=open]:bg-white/10 group-data-[collapsible=icon]:size-10! group-data-[collapsible=icon]:p-1! group-data-[collapsible=icon]:bg-transparent group-data-[collapsible=icon]:ring-0"
+                        >
+                            <UserIdentity user={user} subtitle={subtitle} subtitleClassName="text-emerald-200/60" />
                             <ChevronsUpDown className="ml-auto size-4" />
                         </SidebarMenuButton>
                     </DropdownMenuTrigger>
@@ -66,13 +70,13 @@ export function UserMenu() {
     );
 }
 
-function UserIdentity({ user, subtitle }: { user: AuthUser; subtitle: string }) {
+function UserIdentity({ user, subtitle, subtitleClassName = "text-muted-foreground" }: { user: AuthUser; subtitle: string; subtitleClassName?: string }) {
     return (
         <>
-            <UserAvatar user={user} className="size-8 rounded-lg" />
+            <UserAvatar user={user} className="size-8 rounded-lg ring-2 ring-emerald-400/40" />
             <div className="grid flex-1 text-left text-sm leading-tight">
-                <span className="truncate font-medium">{user.name}</span>
-                <span className="truncate text-xs text-muted-foreground">{subtitle}</span>
+                <span className="truncate font-semibold">{user.name}</span>
+                <span className={cn("truncate text-xs", subtitleClassName)}>{subtitle}</span>
             </div>
         </>
     );
