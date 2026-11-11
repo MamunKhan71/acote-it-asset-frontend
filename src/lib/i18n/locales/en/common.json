@@ -37,10 +37,19 @@
         "subtitle": "Here is what is happening with your assets.",
         "noData": "No data yet",
         "stats": {
-            "totalAssets": "Total assets",
-            "assigned": "Assigned",
-            "underRepair": "Under repair",
-            "pendingApprovals": "Pending approvals"
+            "assets": "Assets",
+            "inUse": "In use",
+            "inStock": "In stock",
+            "faulty": "Faulty · repair",
+            "needsCheck": "Needs check",
+            "pendingApproval": "Pending approval"
+        },
+        "hints": {
+            "types_one": "{{count}} type",
+            "types_other": "{{count}} types",
+            "inRepair": "In repair {{count}}",
+            "needsCheck": "Condition not verified",
+            "pendingApproval": "Awaiting review"
         },
         "recentActivity": "Recent activity",
         "pendingApprovals": "Waiting for you",

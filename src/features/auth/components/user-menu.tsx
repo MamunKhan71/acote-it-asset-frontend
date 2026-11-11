@@ -31,13 +31,13 @@ export function UserMenu() {
                     <DropdownMenuTrigger asChild>
                         <SidebarMenuButton
                             size="lg"
-                            className="h-14 rounded-xl bg-white/[0.05] text-white ring-1 ring-inset ring-white/10 hover:bg-white/10 hover:text-white data-[state=open]:bg-white/10 group-data-[collapsible=icon]:size-10! group-data-[collapsible=icon]:p-1! group-data-[collapsible=icon]:bg-transparent group-data-[collapsible=icon]:ring-0"
+                            className="h-14 rounded-xl bg-card text-sidebar-accent-foreground shadow-sm ring-1 ring-inset ring-sidebar-border hover:bg-card hover:ring-primary/30 data-[state=open]:ring-primary/40 group-data-[collapsible=icon]:size-10! group-data-[collapsible=icon]:p-1! group-data-[collapsible=icon]:bg-transparent group-data-[collapsible=icon]:shadow-none group-data-[collapsible=icon]:ring-0"
                         >
-                            <UserIdentity user={user} subtitle={subtitle} subtitleClassName="text-emerald-200/60" />
+                            <UserIdentity user={user} subtitle={subtitle} subtitleClassName="text-primary/70" />
                             <ChevronsUpDown className="ml-auto size-4" />
                         </SidebarMenuButton>
                     </DropdownMenuTrigger>
-                    <DropdownMenuContent className="w-(--radix-dropdown-menu-trigger-width) min-w-56 rounded-lg" side={isMobile ? "bottom" : "right"} align="end" sideOffset={4}>
+                    <DropdownMenuContent className="w-(--radix-dropdown-menu-trigger-width) min-w-60 rounded-xl border-sidebar-border p-1.5 shadow-lg shadow-primary/10" side={isMobile ? "bottom" : "right"} align="end" sideOffset={10}>
                         <DropdownMenuLabel className="p-0 font-normal">
                             <div className="flex items-center gap-2 px-1 py-1.5">
                                 <UserIdentity user={user} subtitle={user.email} />
@@ -73,7 +73,7 @@ export function UserMenu() {
 function UserIdentity({ user, subtitle, subtitleClassName = "text-muted-foreground" }: { user: AuthUser; subtitle: string; subtitleClassName?: string }) {
     return (
         <>
-            <UserAvatar user={user} className="size-8 rounded-lg ring-2 ring-emerald-400/40" />
+            <UserAvatar user={user} className="size-8 rounded-lg ring-2 ring-primary/20" />
             <div className="grid flex-1 text-left text-sm leading-tight">
                 <span className="truncate font-semibold">{user.name}</span>
                 <span className={cn("truncate text-xs", subtitleClassName)}>{subtitle}</span>

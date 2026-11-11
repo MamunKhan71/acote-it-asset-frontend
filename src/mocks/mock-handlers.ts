@@ -120,6 +120,17 @@ export const handlers: Record<string, Handler> = {
 
     "GET /profile/sessions": authed(() => db.sessions),
 
+    "GET /dashboard/summary": authed(() => ({
+        totalAssets: 387,
+        assetTypes: 8,
+        inUse: 209,
+        inStock: 157,
+        faulty: 41,
+        inRepair: 21,
+        needsCheck: 22,
+        pendingApprovals: 0,
+    })),
+
     "DELETE /profile/sessions/:id": authed(({ params }) => {
         const exists = db.sessions.some((session) => session.id === params.id && !session.isCurrent);
         if (!exists) throw new MockFailure(404, "NOT_FOUND", "Session not found");

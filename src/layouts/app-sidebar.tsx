@@ -24,27 +24,27 @@ import { usePermission, UserMenu } from "@/features/auth";
 import { cn } from "@/lib/utils";
 
 const itemClass = cn(
-    "group/nav relative h-10 gap-3 rounded-xl px-2 text-[13.5px] font-medium text-sidebar-foreground/70 transition-all duration-200",
-    "hover:bg-white/[0.04] hover:text-white",
-    "data-[active=true]:bg-gradient-to-r data-[active=true]:from-emerald-400/20 data-[active=true]:via-emerald-400/[0.07] data-[active=true]:to-transparent data-[active=true]:font-semibold data-[active=true]:text-white",
-    "data-[state=open]:text-white data-[state=open]:hover:bg-white/[0.04]",
-    "before:absolute before:-left-2 before:top-1/2 before:h-6 before:w-1 before:-translate-y-1/2 before:rounded-r-full before:bg-emerald-400 before:opacity-0 before:shadow-[0_0_12px_2px_rgba(52,211,153,0.6)] before:transition-opacity data-[active=true]:before:opacity-100",
+    "group/nav relative h-10 gap-3 rounded-xl px-1.5 text-[14px] font-medium text-sidebar-foreground transition-all duration-200",
+    "hover:bg-sidebar-accent hover:text-sidebar-accent-foreground",
+    "data-[active=true]:bg-card data-[active=true]:font-semibold data-[active=true]:text-sidebar-accent-foreground data-[active=true]:shadow-[0_1px_2px_hsl(var(--sidebar-foreground)/0.06),0_4px_12px_-4px_hsl(var(--primary)/0.18)] data-[active=true]:ring-1 data-[active=true]:ring-sidebar-border",
+    "data-[state=open]:hover:bg-sidebar-accent",
+    "before:absolute before:-left-2 before:top-1/2 before:h-5 before:w-[3px] before:-translate-y-1/2 before:rounded-r-full before:bg-primary before:opacity-0 before:transition-opacity data-[active=true]:before:opacity-100",
     "group-data-[collapsible=icon]:size-10! group-data-[collapsible=icon]:p-1! group-data-[collapsible=icon]:before:hidden",
 );
 
 const subItemClass = cn(
-    "group/sub h-9 gap-2.5 rounded-lg px-2.5 text-[13px] text-sidebar-foreground/60 transition-colors",
-    "hover:bg-white/[0.04] hover:text-white",
-    "data-[active=true]:bg-white/[0.06] data-[active=true]:font-medium data-[active=true]:text-emerald-300",
+    "group/sub h-9 gap-2.5 rounded-lg px-2.5 text-[13.5px] font-medium text-sidebar-foreground/85 transition-colors",
+    "hover:bg-sidebar-accent hover:text-sidebar-accent-foreground",
+    "data-[active=true]:bg-card data-[active=true]:font-semibold data-[active=true]:text-primary data-[active=true]:ring-1 data-[active=true]:ring-sidebar-border",
 );
 
 function NavIcon({ icon: Icon }: { icon: LucideIcon }) {
     return (
         <span
             className={cn(
-                "flex size-8 shrink-0 items-center justify-center rounded-lg bg-white/[0.05] text-sidebar-foreground/70 ring-1 ring-inset ring-white/[0.06] transition-all duration-200",
-                "group-hover/nav:bg-white/10 group-hover/nav:text-white",
-                "group-data-[active=true]/nav:bg-gradient-to-br group-data-[active=true]/nav:from-emerald-300 group-data-[active=true]/nav:to-emerald-500 group-data-[active=true]/nav:text-emerald-950 group-data-[active=true]/nav:shadow-[0_4px_14px_-2px_rgba(52,211,153,0.55)] group-data-[active=true]/nav:ring-emerald-200/40",
+                "flex size-8 shrink-0 items-center justify-center rounded-lg bg-card/80 text-sidebar-foreground/80 ring-1 ring-inset ring-sidebar-border transition-all duration-200",
+                "group-hover/nav:text-primary",
+                "group-data-[active=true]/nav:bg-gradient-to-br group-data-[active=true]/nav:from-emerald-500 group-data-[active=true]/nav:to-teal-600 group-data-[active=true]/nav:text-white group-data-[active=true]/nav:shadow-[0_4px_12px_-3px_hsl(var(--primary)/0.55)] group-data-[active=true]/nav:ring-0",
             )}
         >
             <Icon className="size-[18px]" strokeWidth={2} />
@@ -76,26 +76,25 @@ export function AppSidebar() {
 
     return (
         <Sidebar variant="inset" collapsible="icon">
-            <SidebarHeader className="pb-4">
+            <SidebarHeader className="pb-0">
                 <SidebarMenu>
                     <SidebarMenuItem>
-                        <SidebarMenuButton size="lg" asChild className="h-14 rounded-xl hover:bg-white/[0.04] group-data-[collapsible=icon]:size-10! group-data-[collapsible=icon]:p-0.5!">
+                        <SidebarMenuButton size="lg" asChild className="h-12 rounded-xl hover:bg-sidebar-accent group-data-[collapsible=icon]:size-10! group-data-[collapsible=icon]:p-0.5!">
                             <Link to={paths.dashboard}>
                                 <AppMark />
                                 <div className="grid flex-1 text-left leading-tight">
-                                    <span className="truncate text-[15px] font-bold tracking-tight text-white">{t("app.name")}</span>
-                                    <span className="truncate text-[11px] font-medium uppercase tracking-[0.12em] text-emerald-300/70">{t("app.tagline")}</span>
+                                    <span className="truncate text-[16px] font-bold tracking-tight text-sidebar-accent-foreground">{t("app.name")}</span>
+                                    <span className="truncate text-[11px] font-medium uppercase tracking-[0.12em] text-primary/70">{t("app.tagline")}</span>
                                 </div>
                             </Link>
                         </SidebarMenuButton>
                     </SidebarMenuItem>
                 </SidebarMenu>
-                <div className="mx-2 mt-3 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
             </SidebarHeader>
-            <SidebarContent className="gap-1 [scrollbar-color:rgb(255_255_255/0.12)_transparent] [scrollbar-width:thin]">
+            <SidebarContent className="gap-1 [scrollbar-color:hsl(var(--sidebar-border))_transparent] [scrollbar-width:thin]">
                 {groups.map((group) => (
                     <SidebarGroup key={group.labelKey}>
-                        <SidebarGroupLabel className="mb-1 text-[10.5px] font-semibold uppercase tracking-[0.16em] text-sidebar-foreground/35">
+                        <SidebarGroupLabel className="mb-1 text-[11px] font-semibold uppercase tracking-[0.16em] text-sidebar-foreground/65">
                             {t(group.labelKey)}
                         </SidebarGroupLabel>
                         <SidebarMenu className="gap-1">
@@ -111,12 +110,12 @@ export function AppSidebar() {
                                                 </SidebarMenuButton>
                                             </CollapsibleTrigger>
                                             <CollapsibleContent>
-                                                <SidebarMenuSub className="ml-6 mt-1 gap-0.5 border-l border-white/10 pl-3">
+                                                <SidebarMenuSub className="ml-5 mt-1 gap-0.5 border-l border-sidebar-border pl-3">
                                                     {item.children.map((child) => (
                                                         <SidebarMenuSubItem key={child.path}>
                                                             <SidebarMenuSubButton asChild isActive={isActive(child.path)} className={subItemClass}>
                                                                 <Link to={child.path}>
-                                                                    <span className="size-1.5 shrink-0 rounded-full bg-current opacity-40 group-data-[active=true]/sub:opacity-100 group-data-[active=true]/sub:shadow-[0_0_8px_rgba(110,231,183,0.9)]" />
+                                                                    <span className="size-1.5 shrink-0 rounded-full bg-current opacity-60 group-data-[active=true]/sub:opacity-100" />
                                                                     <span>{t(child.labelKey)}</span>
                                                                 </Link>
                                                             </SidebarMenuSubButton>

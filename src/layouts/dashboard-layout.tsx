@@ -13,9 +13,9 @@ export function DashboardLayout() {
     const { title } = usePageTitle();
 
     return (
-        <SidebarProvider>
+        <SidebarProvider className="app-backdrop app-backdrop-subtle md:[&_[data-sidebar=sidebar]]:bg-transparent">
             <AppSidebar />
-            <SidebarInset>
+            <SidebarInset className="bg-transparent md:shadow-none">
                 <header className="flex h-16 shrink-0 items-center gap-2 border-b px-4">
                     <SidebarTrigger className="-ml-1" />
                     <Separator orientation="vertical" className="mr-2 data-[orientation=vertical]:h-4" />

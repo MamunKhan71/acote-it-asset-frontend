@@ -37,10 +37,19 @@
         "subtitle": "আপনার সম্পদের সর্বশেষ অবস্থা এখানে দেখুন।",
         "noData": "এখনো কোনো তথ্য নেই",
         "stats": {
-            "totalAssets": "মোট সম্পদ",
-            "assigned": "বরাদ্দকৃত",
-            "underRepair": "মেরামতে আছে",
-            "pendingApprovals": "অনুমোদনের অপেক্ষায়"
+            "assets": "সম্পদ",
+            "inUse": "ব্যবহৃত হচ্ছে",
+            "inStock": "স্টকে আছে",
+            "faulty": "ত্রুটিপূর্ণ · মেরামত",
+            "needsCheck": "যাচাই দরকার",
+            "pendingApproval": "অনুমোদনের অপেক্ষায়"
+        },
+        "hints": {
+            "types_one": "{{count}} ধরন",
+            "types_other": "{{count}} ধরন",
+            "inRepair": "মেরামতে {{count}}",
+            "needsCheck": "অবস্থা যাচাই হয়নি",
+            "pendingApproval": "পর্যালোচনার অপেক্ষায়"
         },
         "recentActivity": "সাম্প্রতিক কার্যক্রম",
         "pendingApprovals": "আপনার অপেক্ষায়",

@@ -7,10 +7,10 @@
 :root {
     --radius: 8px;
 
-    --background: 150 25% 98%;
+    --background: 150 22% 96.5%;
     --foreground: 162 30% 12%;
 
-    --card: 0 0% 100%;
+    --card: 150 30% 99%;
     --card-foreground: 162 30% 12%;
 
     --popover: 0 0% 100%;
@@ -34,7 +34,7 @@
     --ring: 160 64% 30%;
 
     --sidebar: 150 30% 94.5%;
-    --sidebar-foreground: 162 28% 20%;
+    --sidebar-foreground: 162 32% 14%;
     --sidebar-accent: 150 32% 89%;
     --sidebar-accent-foreground: 160 64% 20%;
     --sidebar-border: 150 22% 85%;
@@ -128,6 +128,26 @@
     body {
         @apply bg-background text-foreground;
     }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+    -webkit-text-fill-color: hsl(var(--foreground));
+    box-shadow: 0 0 0 1000px hsl(var(--card)) inset;
+    transition: background-color 9999s ease-out;
+}
+
+.app-backdrop {
+    background: url("/web-bg.webp") center / cover fixed no-repeat, hsl(var(--background));
+}
+
+.app-backdrop-subtle {
+    background: linear-gradient(hsl(var(--background) / 0.72), hsl(var(--background) / 0.72)), url("/web-bg.webp") center / cover fixed no-repeat, hsl(var(--background));
+}
+
+.dark .app-backdrop {
+    background: linear-gradient(hsl(var(--background) / 0.94), hsl(var(--background) / 0.94)), url("/web-bg.webp") center / cover fixed no-repeat;
 }
 
 @keyframes page-enter {
