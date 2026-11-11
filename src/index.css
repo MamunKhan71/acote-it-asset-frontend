@@ -1,0 +1,153 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Bengali:wght@400;500;600;700&display=swap");
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+    --radius: 6px;
+
+    --background: 210 20% 97%;
+    --foreground: 210 15% 20%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 210 15% 20%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 15% 20%;
+
+    --primary: 142 58% 28%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 16% 93%;
+    --secondary-foreground: 210 12% 28%;
+
+    --muted: 210 16% 95%;
+    --muted-foreground: 210 10% 40%;
+
+    --accent: 142 30% 92%;
+    --accent-foreground: 142 58% 24%;
+
+    --destructive: 0 70% 48%;
+    --border: 210 16% 86%;
+    --input: 210 16% 86%;
+    --ring: 142 58% 28%;
+
+    --sidebar: 0 0% 100%;
+    --sidebar-foreground: 210 15% 20%;
+    --sidebar-accent: 142 30% 92%;
+    --sidebar-accent-foreground: 142 58% 24%;
+    --sidebar-border: 210 16% 86%;
+    --sidebar-ring: 142 58% 28%;
+}
+
+.dark {
+    --background: 215 28% 9%;
+    --foreground: 210 20% 92%;
+
+    --card: 215 25% 12%;
+    --card-foreground: 210 20% 92%;
+
+    --popover: 215 25% 12%;
+    --popover-foreground: 210 20% 92%;
+
+    --primary: 142 50% 42%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 215 20% 18%;
+    --secondary-foreground: 210 20% 88%;
+
+    --muted: 215 20% 16%;
+    --muted-foreground: 210 12% 65%;
+
+    --accent: 142 25% 18%;
+    --accent-foreground: 142 50% 75%;
+
+    --destructive: 0 65% 52%;
+    --border: 215 18% 22%;
+    --input: 215 18% 22%;
+    --ring: 142 50% 42%;
+
+    --sidebar: 215 25% 11%;
+    --sidebar-foreground: 210 20% 92%;
+    --sidebar-accent: 142 25% 18%;
+    --sidebar-accent-foreground: 142 50% 75%;
+    --sidebar-border: 215 18% 22%;
+    --sidebar-ring: 142 50% 42%;
+}
+
+@theme inline {
+    --radius-sm: 4px;
+    --radius-md: 6px;
+    --radius-lg: 8px;
+    --radius-xl: 10px;
+
+    --color-background: hsl(var(--background));
+    --color-foreground: hsl(var(--foreground));
+    --color-card: hsl(var(--card));
+    --color-card-foreground: hsl(var(--card-foreground));
+    --color-popover: hsl(var(--popover));
+    --color-popover-foreground: hsl(var(--popover-foreground));
+    --color-primary: hsl(var(--primary));
+    --color-primary-foreground: hsl(var(--primary-foreground));
+    --color-secondary: hsl(var(--secondary));
+    --color-secondary-foreground: hsl(var(--secondary-foreground));
+    --color-muted: hsl(var(--muted));
+    --color-muted-foreground: hsl(var(--muted-foreground));
+    --color-accent: hsl(var(--accent));
+    --color-accent-foreground: hsl(var(--accent-foreground));
+    --color-border: hsl(var(--border));
+    --color-input: hsl(var(--input));
+    --color-ring: hsl(var(--ring));
+    --color-destructive: hsl(var(--destructive));
+    --color-sidebar: hsl(var(--sidebar));
+    --color-sidebar-foreground: hsl(var(--sidebar-foreground));
+    --color-sidebar-accent: hsl(var(--sidebar-accent));
+    --color-sidebar-accent-foreground: hsl(var(--sidebar-accent-foreground));
+    --color-sidebar-border: hsl(var(--sidebar-border));
+    --color-sidebar-ring: hsl(var(--sidebar-ring));
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    html[lang="en"] body {
+        font-family: "Inter", "Noto Sans Bengali", sans-serif;
+    }
+
+    html[lang="bn"] body {
+        font-family: "Noto Sans Bengali", "Inter", sans-serif;
+    }
+
+    body {
+        @apply bg-background text-foreground;
+    }
+}
+
+@keyframes page-enter {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.page-transition {
+    animation: page-enter 220ms ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .page-transition {
+        animation: none;
+    }
+}

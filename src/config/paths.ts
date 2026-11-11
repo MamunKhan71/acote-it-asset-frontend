@@ -1,0 +1,18 @@
+export const paths = {
+    login: "/login",
+    forgotPassword: "/forgot-password",
+    verifyOtp: "/verify-otp",
+    resetPassword: "/reset-password",
+    dashboard: "/dashboard",
+    profile: "/profile",
+    assets: "/assets",
+    repairs: "/repairs",
+    handover: "/handover",
+    people: "/people",
+    approvals: "/approvals",
+    history: "/history",
+    users: "/admin/users",
+    roles: "/admin/roles",
+    permissions: "/admin/permissions",
+    settings: "/admin/settings",
+} as const;

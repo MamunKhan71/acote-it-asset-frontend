@@ -1,0 +1,107 @@
+{
+    "app": {
+        "name": "Acote AMS",
+        "tagline": "IT asset management"
+    },
+    "actions": {
+        "retry": "Retry",
+        "cancel": "Cancel",
+        "save": "Save changes",
+        "signOut": "Sign out",
+        "goHome": "Go to dashboard",
+        "toggleSidebar": "Toggle sidebar",
+        "togglePassword": "Show or hide password",
+        "toggleTheme": "Switch light or dark theme"
+    },
+    "nav": {
+        "groups": {
+            "main": "Main",
+            "admin": "Administration"
+        },
+        "overview": "Overview",
+        "assets": "Assets",
+        "repairs": "Repairs",
+        "handover": "Handover",
+        "people": "People",
+        "approvals": "Approvals",
+        "history": "History",
+        "admin": "Admin",
+        "users": "Users",
+        "roles": "Roles",
+        "permissions": "Permissions",
+        "settings": "Settings",
+        "profile": "My profile",
+        "security": "Password & security"
+    },
+    "dashboard": {
+        "subtitle": "Here is what is happening with your assets.",
+        "noData": "No data yet",
+        "stats": {
+            "totalAssets": "Total assets",
+            "assigned": "Assigned",
+            "underRepair": "Under repair",
+            "pendingApprovals": "Pending approvals"
+        },
+        "recentActivity": "Recent activity",
+        "pendingApprovals": "Waiting for you",
+        "emptyActivity": "Activity will appear here once assets are added.",
+        "emptyApprovals": "Nothing is waiting for your approval."
+    },
+    "theme": {
+        "light": "Light",
+        "dark": "Dark",
+        "system": "System"
+    },
+    "language": {
+        "en": "English",
+        "bn": "বাংলা"
+    },
+    "validation": {
+        "required": "This field is required",
+        "email": "Enter a valid email address",
+        "passwordLength": "Use 10 to 128 characters",
+        "passwordMismatch": "Passwords do not match",
+        "otp": "Enter the 6-digit code",
+        "phone": "Enter an 11-digit number starting with 01",
+        "nameLength": "Use 2 to 100 characters",
+        "maxLength": "This is too long"
+    },
+    "errors": {
+        "VALIDATION_ERROR": "Please check the highlighted fields",
+        "BAD_REQUEST": "The request could not be processed",
+        "AUTH_INVALID_CREDENTIALS": "Email or password is incorrect",
+        "AUTH_ACCOUNT_DISABLED": "Your account is disabled. Contact an administrator.",
+        "AUTH_ACCOUNT_LOCKED": "Too many failed attempts. Your account is locked for a while.",
+        "FORBIDDEN": "You do not have permission to do this",
+        "NOT_FOUND": "We could not find what you were looking for",
+        "OTP_INVALID": "Incorrect code. {{attemptsRemaining}} tries left.",
+        "OTP_EXPIRED": "This code has expired. Request a new one.",
+        "OTP_TOO_MANY_ATTEMPTS": "Too many wrong tries. Request a new code.",
+        "OTP_RESEND_COOLDOWN": "Please wait before requesting another code",
+        "RESET_TOKEN_INVALID": "This reset link is no longer valid. Start again.",
+        "RESET_TOKEN_EXPIRED": "This reset link has expired. Start again.",
+        "PASSWORD_INCORRECT": "Current password is incorrect",
+        "PASSWORD_POLICY": "This password does not meet the requirements",
+        "RATE_LIMITED": "Too many requests. Please wait and try again.",
+        "NETWORK_ERROR": "Cannot reach the server. Check your connection.",
+        "INTERNAL_ERROR": "Something went wrong. Reference: {{requestId}}"
+    },
+    "pages": {
+        "notFound": {
+            "title": "Page not found",
+            "description": "The page you are looking for does not exist or has moved."
+        },
+        "forbidden": {
+            "title": "Access denied",
+            "description": "You do not have permission to view this page."
+        },
+        "comingSoon": {
+            "title": "Coming soon",
+            "description": "This module is not built yet. Your access to it is already set up."
+        },
+        "bootError": {
+            "title": "Cannot connect",
+            "description": "We could not reach the server. Check your connection and try again."
+        }
+    }
+}
