@@ -13,7 +13,8 @@ declare module "@tanstack/react-table" {
 }
 
 type DataTableProps<TData> = {
-    columns: ColumnDef<TData, never>[];
+    columns: ColumnDef<TData, unknown>[];
+    fetching?: boolean;
     data: TData[];
     getRowId: (row: TData) => string;
     loading?: boolean;
@@ -29,6 +30,7 @@ export function DataTable<TData>({
     data,
     getRowId,
     loading,
+    fetching,
     skeletonRows = 8,
     emptyTitle,
     emptyDescription,
@@ -48,7 +50,7 @@ export function DataTable<TData>({
     const columnCount = table.getVisibleLeafColumns().length;
 
     return (
-        <div className="overflow-hidden rounded-xl border bg-card">
+        <div className={cn("overflow-hidden rounded-xl border bg-card transition-opacity", fetching && !loading && "opacity-60")} aria-busy={loading || fetching}>
             <Table>
                 <TableHeader className="bg-muted/50">
                     {table.getHeaderGroups().map((headerGroup) => (

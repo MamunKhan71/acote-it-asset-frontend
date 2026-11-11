@@ -2,12 +2,24 @@ import type { Preferences } from "@/features/auth/types";
 import type { ErrorCode } from "@/lib/api/error-codes";
 import type { ErrorMeta, FieldError } from "@/lib/api/types";
 import { db, DEMO_EMAIL, DEMO_OTP, DEMO_RESET_TOKEN, saveDb } from "./mock-db";
+import { findActivity, historyFilterOptions, listActivities } from "./mock-history";
 
 export type MockRequest = {
     body: Record<string, unknown>;
     params: Record<string, string>;
+    query: Record<string, string | undefined>;
     token: string | null;
 };
+
+export class MockList {
+    readonly items: unknown[];
+    readonly pagination: { currentPage: number; lastPage: number; perPage: number; total: number };
+
+    constructor({ items, pagination }: MockList) {
+        this.items = items;
+        this.pagination = pagination;
+    }
+}
 
 type Handler = (request: MockRequest) => unknown;
 
@@ -130,6 +142,16 @@ export const handlers: Record<string, Handler> = {
         needsCheck: 22,
         pendingApprovals: 0,
     })),
+
+    "GET /history/activities": authed(({ query }) => new MockList(listActivities(query))),
+
+    "GET /history/activities/:id": authed(({ params }) => {
+        const activity = findActivity(params.id);
+        if (!activity) throw new MockFailure(404, "NOT_FOUND", "Activity not found");
+        return activity;
+    }),
+
+    "GET /history/filter-options": authed(() => historyFilterOptions()),
 
     "DELETE /profile/sessions/:id": authed(({ params }) => {
         const exists = db.sessions.some((session) => session.id === params.id && !session.isCurrent);

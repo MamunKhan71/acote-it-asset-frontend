@@ -1,0 +1,71 @@
+{
+    "subtitle": "Every change across assets, handovers, repairs, approvals, people and admin. Newest first.",
+    "system": "System",
+    "filters": {
+        "search": "Search",
+        "searchPlaceholder": "Search activity, asset or person",
+        "category": "Category",
+        "allCategories": "All categories",
+        "performedBy": "Performed by",
+        "anyone": "Anyone",
+        "assetTag": "Asset tag",
+        "employee": "Employee",
+        "employeePlaceholder": "Name or employee ID",
+        "site": "Site",
+        "allSites": "All sites",
+        "dateRange": "Date range",
+        "dateFrom": "From date",
+        "dateTo": "To date",
+        "reset": "Clear filters"
+    },
+    "columns": {
+        "activity": "Activity",
+        "category": "Category",
+        "performedBy": "Performed by",
+        "related": "Related item",
+        "occurredAt": "Date & time"
+    },
+    "categories": {
+        "asset": "Asset",
+        "handover": "Handover",
+        "repair": "Repair",
+        "approval": "Approval",
+        "people": "People",
+        "admin": "Admin"
+    },
+    "subjects": {
+        "asset": "Asset",
+        "employee": "Employee",
+        "repair": "Repair",
+        "approval": "Approval",
+        "user": "User",
+        "role": "Role",
+        "site": "Site",
+        "category": "Asset category",
+        "brand": "Brand"
+    },
+    "empty": {
+        "title": "No activity found",
+        "description": "Try a different filter or widen the date range."
+    },
+    "detail": {
+        "title": "Activity details",
+        "readOnly": "Logs are permanent and cannot be edited",
+        "performedBy": "Performed by",
+        "occurredAt": "Date & time",
+        "relatedItem": "Related item",
+        "site": "Site",
+        "changes": "What changed",
+        "field": "Field",
+        "previous": "Previous",
+        "updated": "Updated",
+        "related": "Also involved",
+        "note": "Note",
+        "context": "Supporting info",
+        "ip": "IP address",
+        "device": "Device",
+        "requestId": "Request ID",
+        "yes": "Yes",
+        "no": "No"
+    }
+}

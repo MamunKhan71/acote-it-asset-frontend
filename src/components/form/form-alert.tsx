@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 type Tone = "error" | "info" | "success";
 
 type FormAlertProps = {
-    error?: AppError | null;
+    error?: Pick<AppError, "code" | "message" | "meta" | "requestId"> | null;
     message?: string | null;
     tone?: Tone;
 };

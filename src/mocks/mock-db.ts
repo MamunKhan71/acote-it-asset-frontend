@@ -41,6 +41,7 @@ const initialDb: MockDb = {
             "dashboard.dashboard.view",
             "handover.handover.list",
             "history.activity.list",
+            "history.activity.view",
             "people.employee.list",
             "repairs.repair.list",
             "settings.settings.view",

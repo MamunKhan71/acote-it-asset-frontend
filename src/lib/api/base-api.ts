@@ -40,6 +40,11 @@ const axiosBaseQuery: BaseQueryFn<ApiRequest, unknown, ApiError> = async ({ url,
     }
 };
 
+export const asApiError = (error: unknown): ApiError =>
+    error && typeof error === "object" && "code" in error
+        ? (error as ApiError)
+        : { status: 0, code: "INTERNAL_ERROR", message: "Something went wrong", details: [], meta: {} };
+
 export const baseApi = createApi({
     reducerPath: "api",
     baseQuery: axiosBaseQuery,

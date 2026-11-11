@@ -27,6 +27,7 @@ const guestPages: RouteObject[] = [
 
 const builtPages: Partial<Record<string, () => Promise<PageModule>>> = {
     [paths.dashboard]: () => import("@/features/dashboard/pages/dashboard.page"),
+    [paths.history]: () => import("@/features/history/pages/history.page"),
 };
 
 const comingSoon = () => import("@/pages/coming-soon.page");

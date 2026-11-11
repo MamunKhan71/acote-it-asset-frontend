@@ -1,6 +1,6 @@
 import axios, { AxiosError, AxiosHeaders, type AxiosAdapter, type InternalAxiosRequestConfig } from "axios";
 import { env } from "@/config/env";
-import { handlers, MockFailure, type MockRequest } from "./mock-handlers";
+import { handlers, MockFailure, MockList, type MockRequest } from "./mock-handlers";
 
 const LATENCY_MS = 300;
 const apiBasePath = new URL(env.VITE_API_URL).pathname.replace(/\/$/, "");
@@ -20,7 +20,14 @@ const bodyOf = (data: unknown): Record<string, unknown> => {
     return typeof data === "string" && data ? JSON.parse(data) : {};
 };
 
-const tokenOf = (config: InternalAxiosRequestConfig) =>
+const queryOf = (params: unknown): Record<string, string | undefined> =>
+    Object.fromEntries(
+        Object.entries((params ?? {}) as Record<string, unknown>)
+            .filter(([, value]) => value !== undefined && value !== null)
+            .map(([key, value]) => [key, String(value)]),
+    );
+
+const tokenOf =(config: InternalAxiosRequestConfig) =>
     AxiosHeaders.from(config.headers).get("Authorization")?.toString().replace("Bearer ", "") ?? null;
 
 const respond = (config: InternalAxiosRequestConfig, status: number, data: unknown) => ({
@@ -46,15 +53,14 @@ const mockAdapter: AxiosAdapter = async (config) => {
         const request: MockRequest = {
             body: bodyOf(config.data),
             params: Object.fromEntries(route.names.map((name, index) => [name, values[index]])),
+            query: queryOf(config.params),
             token: tokenOf(config),
         };
 
-        return respond(config, 200, {
-            success: true,
-            message: "OK",
-            data: route.handler(request),
-            requestId,
-        });
+        const result = route.handler(request);
+        const payload = result instanceof MockList ? { data: result.items, meta: { pagination: result.pagination } } : { data: result };
+
+        return respond(config, 200, { success: true, message: "OK", ...payload, requestId });
     } catch (failure) {
         if (!(failure instanceof MockFailure)) throw failure;
 

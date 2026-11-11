@@ -15,7 +15,7 @@ export function DashboardLayout() {
     return (
         <SidebarProvider className="app-backdrop app-backdrop-subtle md:[&_[data-sidebar=sidebar]]:bg-transparent">
             <AppSidebar />
-            <SidebarInset className="bg-transparent md:shadow-none">
+            <SidebarInset className="min-w-0 bg-transparent md:shadow-none">
                 <header className="flex h-16 shrink-0 items-center gap-2 border-b px-4">
                     <SidebarTrigger className="-ml-1" />
                     <Separator orientation="vertical" className="mr-2 data-[orientation=vertical]:h-4" />
@@ -36,7 +36,7 @@ export function DashboardLayout() {
                         <ThemeToggle />
                     </div>
                 </header>
-                <main className="flex flex-1 flex-col gap-6 p-4 md:p-6">
+                <main className="flex min-w-0 flex-1 flex-col gap-6 p-4 md:p-6">
                     <Outlet />
                 </main>
             </SidebarInset>

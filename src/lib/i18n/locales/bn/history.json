@@ -1,0 +1,71 @@
+{
+    "subtitle": "অ্যাসেট, হস্তান্তর, মেরামত, অনুমোদন, কর্মী ও অ্যাডমিনের সব পরিবর্তন। নতুনগুলো আগে।",
+    "system": "সিস্টেম",
+    "filters": {
+        "search": "খুঁজুন",
+        "searchPlaceholder": "কার্যক্রম, অ্যাসেট বা ব্যক্তি খুঁজুন",
+        "category": "ধরন",
+        "allCategories": "সব ধরন",
+        "performedBy": "যিনি করেছেন",
+        "anyone": "যে কেউ",
+        "assetTag": "অ্যাসেট ট্যাগ",
+        "employee": "কর্মী",
+        "employeePlaceholder": "নাম বা কর্মী আইডি",
+        "site": "সাইট",
+        "allSites": "সব সাইট",
+        "dateRange": "তারিখের সীমা",
+        "dateFrom": "শুরুর তারিখ",
+        "dateTo": "শেষের তারিখ",
+        "reset": "ফিল্টার মুছুন"
+    },
+    "columns": {
+        "activity": "কার্যক্রম",
+        "category": "ধরন",
+        "performedBy": "যিনি করেছেন",
+        "related": "সংশ্লিষ্ট বিষয়",
+        "occurredAt": "তারিখ ও সময়"
+    },
+    "categories": {
+        "asset": "অ্যাসেট",
+        "handover": "হস্তান্তর",
+        "repair": "মেরামত",
+        "approval": "অনুমোদন",
+        "people": "কর্মী",
+        "admin": "অ্যাডমিন"
+    },
+    "subjects": {
+        "asset": "অ্যাসেট",
+        "employee": "কর্মী",
+        "repair": "মেরামত",
+        "approval": "অনুমোদন",
+        "user": "ব্যবহারকারী",
+        "role": "রোল",
+        "site": "সাইট",
+        "category": "অ্যাসেটের ধরন",
+        "brand": "ব্র্যান্ড"
+    },
+    "empty": {
+        "title": "কোনো কার্যক্রম পাওয়া যায়নি",
+        "description": "অন্য ফিল্টার দিন বা তারিখের সীমা বাড়ান।"
+    },
+    "detail": {
+        "title": "কার্যক্রমের বিস্তারিত",
+        "readOnly": "লগ স্থায়ী, সম্পাদনা করা যায় না",
+        "performedBy": "যিনি করেছেন",
+        "occurredAt": "তারিখ ও সময়",
+        "relatedItem": "সংশ্লিষ্ট বিষয়",
+        "site": "সাইট",
+        "changes": "যা বদলেছে",
+        "field": "ঘর",
+        "previous": "আগে",
+        "updated": "এখন",
+        "related": "আরও যুক্ত",
+        "note": "নোট",
+        "context": "সহায়ক তথ্য",
+        "ip": "আইপি ঠিকানা",
+        "device": "ডিভাইস",
+        "requestId": "রিকোয়েস্ট আইডি",
+        "yes": "হ্যাঁ",
+        "no": "না"
+    }
+}
