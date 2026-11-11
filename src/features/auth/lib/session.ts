@@ -4,6 +4,7 @@ import { toAppError } from "@/lib/api/errors";
 import { refreshAccessToken } from "@/lib/api/refresh";
 import i18n from "@/lib/i18n";
 import { queryClient } from "@/lib/query-client";
+import { resetApiCache } from "@/lib/store";
 import { applyTheme } from "@/lib/theme";
 import { authApi } from "../api/auth.api";
 import { useAuthStore } from "../store/auth.store";
@@ -49,6 +50,7 @@ export function startSession({ accessToken, expiresIn, ...me }: LoginData) {
 export function endSession(reason: ErrorCode | null = null, notifyOtherTabs = true) {
     window.clearTimeout(refreshTimer);
     queryClient.clear();
+    resetApiCache();
     useAuthStore.getState().signOut(reason);
     if (notifyOtherTabs) broadcast("logout");
 }

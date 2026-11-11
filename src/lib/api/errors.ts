@@ -21,9 +21,11 @@ export class AppError extends Error {
     }
 
     get isUnexpected() {
-        return this.status === 0 || this.status >= 500;
+        return isUnexpectedStatus(this.status);
     }
 }
+
+export const isUnexpectedStatus = (status: number) => status === 0 || status >= 500;
 
 export function toAppError(error: unknown): AppError {
     if (error instanceof AppError) return error;
@@ -46,7 +48,7 @@ export function applyFieldErrors<T extends FieldValues>(error: AppError, setErro
     return error.details.length > 0;
 }
 
-export function describeError(error: AppError) {
+export function describeError(error: Pick<AppError, "code" | "message" | "meta" | "requestId">) {
     return i18n.t(`errors.${error.code}`, {
         ns: "common",
         defaultValue: error.message,

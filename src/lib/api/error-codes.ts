@@ -26,6 +26,7 @@ export const ERROR_CODES = [
     "OTP_RESEND_COOLDOWN",
     "INTERNAL_ERROR",
     "NETWORK_ERROR",
+    "INVALID_RESPONSE",
 ] as const;
 
 export type ErrorCode = (typeof ERROR_CODES)[number];
